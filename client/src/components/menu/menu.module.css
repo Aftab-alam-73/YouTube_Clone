@@ -1,0 +1,141 @@
+
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+   ::-webkit-scrollbar{
+    display: none;
+   }
+      z-index: 20;
+}
+.darkContainer{
+    width: 17%;
+    height: 100vh;
+    background-color: white;
+    padding-left: 20px;
+    overflow: auto;
+    padding-right: 10px;
+    background: #020617;
+    color: white;
+}
+.test{
+    height: 60px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    margin-bottom: 20px;
+   
+   
+}
+.darkTest{
+    height: 60px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    margin-bottom: 20px;
+    background-color: #020617;
+    color: white;
+}
+.menu{
+    width: 17%;
+    height: 100vh;
+    background-color: white;
+    padding-left: 20px;
+    overflow: auto;
+    padding-right: 10px;
+    
+}
+.logoContainer{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: sticky;
+    background-color: white;
+    top: 10px;
+   
+    
+}
+.darklogoContainer{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: sticky;
+    background-color: white;
+    top: 10px;
+    background-color: #020617;
+}
+.logoSubContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+   
+}
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+.more{
+    font-size: 40px !important;
+     width: 35px !important;
+     cursor: pointer;
+}
+.logo{
+width: 30px;
+height: 25px;
+}
+.logo{
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Roboto Mono', monospace;
+}
+.items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     gap: 5px;
+}
+.item{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+.darkitem{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    cursor: pointer;  
+}
+.item:hover{
+    background-color: lightgray;
+   
+    border-radius: 25px;
+}
+.darkitem:hover{
+    background-color: gray;
+    border-radius: 25px;
+}
+
+.blank{
+    width: 90%;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.2;
+}
+.info{
+    margin-bottom: 10px;
+}
+.developer{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.link{
+    text-decoration: none;
+    color: inherit;
+}

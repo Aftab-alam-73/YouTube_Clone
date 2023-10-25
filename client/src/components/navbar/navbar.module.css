@@ -1,0 +1,229 @@
+.container{
+display:  flex;
+align-items: center;
+justify-content: space-between;
+margin: 0px 20px;
+padding-top: 10px;
+padding-bottom: 10px;
+/* margin-bottom: 40px; */
+
+}
+.leftContainer{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 30px;
+}
+.logoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    
+}
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+.more{
+    font-size: 40px !important;
+     width: 35px !important;
+     cursor: pointer;
+}
+.logo{
+width: 30px;
+height: 25px;
+}
+.logoTitle{
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.middleContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.searchContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.input{
+    width: 400px ;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(222, 217, 217);
+    padding: 10px 30px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    
+}
+.darkInput{
+    width: 400px ;
+    border: none;
+    outline: none;
+    border: 1px solid #64748b;
+    padding: 10px 30px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #020617;
+    color: white;
+}
+.darkInput:focus{
+    border: 1px solid blue;
+}
+.searchBtn{
+    padding: 4px 20px;
+    border: none;
+    border: 1px solid rgb(222, 217, 217);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    background-color: rgb(247, 242, 242);
+  
+    
+}
+.darkSearchBtn{
+    padding: 4px 20px;
+    border: none;
+    border: 1px solid #64748b;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    background-color: hsl(0, 0%, 7%);
+    color: white;
+}
+.darkSearchBtn:hover{
+    background-color: transparent;
+}
+.searchBtn:hover{
+    background-color: rgb(236, 232, 232);
+    
+}
+.mike{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color:lightgray;
+  
+  
+}
+.darkMike{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color:#64748b;
+    opacity: 0.5;
+}
+.darkMike:hover{
+    background-color:#64748b ;
+    opacity: 1;
+}
+.mike:hover{
+    background-color:rgb(236, 232, 232) ;
+    
+}
+.rightContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.upload{
+ width: 35px;
+ height: 35px;
+ border: 1px solid transparent;
+ border-radius: 50%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.darkUpload{
+    width: 35px;
+ height: 35px;
+ border: 1px solid transparent;
+ border-radius: 50%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+    
+}
+.darkUpload:hover{
+    background-color:#64748b ;
+    opacity: 1;
+}
+.upload:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+.notifications{
+    width: 35px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.darkNotification{
+    width: 35px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.darkNotification:hover{
+    background-color:#64748b ;
+    cursor: pointer;
+}
+.notifications:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+.numberOfNotifications{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 5px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+.img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.users{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.username{
+    font-weight: 600;
+}

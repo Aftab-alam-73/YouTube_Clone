@@ -1,0 +1,84 @@
+.container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position:relative;
+}
+.subContainer{
+    width: 50vw;
+    height:max-content;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10px;
+}
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+   
+    
+}
+.input{
+   
+    border: none;
+    outline: none;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+   
+}
+.darkinput{
+    border: none;
+    outline: none;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: #020617;
+    color: white;
+}
+.desc{
+    height: 30vh;
+    resize: none;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+}
+.darkdesc{
+    height: 30vh;
+    resize: none;
+    padding: 10px;
+    background: #020617;
+    color: white;
+    outline: none;
+    border-radius: 5px;
+}
+.btn{
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.btn:active{
+    font-size: 12px;
+}
+.darkbtn{
+    padding: 10px;
+    cursor: pointer;
+    background: #020617;
+    border: 1px solid gray;
+    color: white;
+    border-radius: 5px;
+}
+.darkbtn:hover{
+    background: gray;
+}
+.darkbtn:active{
+    font-size: 12px;
+}

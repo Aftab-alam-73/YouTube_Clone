@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: center;
+    width: 6%;
+    margin-right: 10px;
+}
+
+.item{
+   
+    width: 50px;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.darkItem{
+    width: 50px;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.title{
+    font-size: 12px;
+}
+.darkItem:hover{
+    background-color: #374151;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.item:hover{
+    background-color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Link{
+    text-decoration: none;
+    color: inherit;
+}

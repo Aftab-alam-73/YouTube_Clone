@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 3px solid blue;
+    padding: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}
+.chnnelContainer{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+   
+}
+.chnnelContainer:hover{
+    background: lightgray;
+    border-radius: 25px;
+}
+.darkchannelContainer{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+.darkchannelContainer:hover{
+    background: gray;
+    border-radius: 25px;
+}
+.img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
