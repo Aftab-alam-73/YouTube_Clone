@@ -77,43 +77,43 @@ const Menu = ({ setOpen }: ChildProps) => {
 
         <div className={styles.items}>
           <Link to={"/"} className={styles.link}>
-            <div className={mode?styles.darkitem:styles.item}>
+            <div className={mode ? styles.darkitem : styles.item}>
               <HomeIcon />
               <span>Home</span>
             </div>
           </Link>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <SlowMotionVideoOutlinedIcon />
             <span>Shorts</span>
           </div>
           <Link to={'/subscriptions'} className={styles.link}>
-          <div className={mode?styles.darkitem:styles.item}>
-            <SubscriptionsIcon />
-            <span>Subscriptions</span>
-          </div>
+            <div className={mode ? styles.darkitem : styles.item}>
+              <SubscriptionsIcon />
+              <span>Subscriptions</span>
+            </div>
           </Link>
           <hr />
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <VideoLibraryOutlinedIcon />
             <span>Library</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <HistoryOutlinedIcon />
             <span>History</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <SlideshowOutlinedIcon />
             <span>Your videos</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <WatchLaterOutlinedIcon />
             <span>Watch later</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <ContentCutOutlinedIcon />
             <span>Your clips</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <ThumbUpOutlinedIcon />
             <span>Liked videos</span>
           </div>
@@ -138,49 +138,49 @@ const Menu = ({ setOpen }: ChildProps) => {
           )}
           <hr />
           <p>Explore</p>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <WhatshotOutlinedIcon />
             <span>Trendig</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <LocalMallOutlinedIcon />
             <span>Shopping</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <AudiotrackOutlinedIcon />
             <span>Musics</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <MovieOutlinedIcon />
             <span>Films</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <CellTowerOutlinedIcon />
             <span>Live</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <SportsEsportsOutlinedIcon />
             <span>Gaming</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <ArticleOutlinedIcon />
             <span>News</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <EmojiEventsOutlinedIcon />
             <span>Sports</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <LightbulbOutlinedIcon />
             <span>Learning</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <DryCleaningOutlinedIcon />
             <span>Fashion & Beauty</span>
           </div>
           <hr />
           <p>More from YouTube</p>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <SettingsOutlinedIcon />
             <span>Settings</span>
           </div>
@@ -190,44 +190,44 @@ const Menu = ({ setOpen }: ChildProps) => {
               className={styles.link}
               onClick={() => setOpen(false)}
             >
-              <div className={mode?styles.darkitem:styles.item}>
+              <div className={mode ? styles.darkitem : styles.item}>
                 <AccountBoxIcon />
                 <span>Your channel</span>
               </div>
             </Link>
           )}
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <FlagOutlinedIcon />
             <span>Report History</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <HelpOutlineOutlinedIcon />
             <span>Help</span>
           </div>
-          <div className={mode?styles.darkitem:styles.item}>
+          <div className={mode ? styles.darkitem : styles.item}>
             <FeedbackOutlinedIcon />
             <span>Send feedback</span>
           </div>
           {mode === true ? (
-            <div className={mode?styles.darkitem:styles.item} onClick={() => Dispatch(lightmode())}>
+            <div className={mode ? styles.darkitem : styles.item} onClick={() => Dispatch(lightmode())}>
               <Brightness4Icon />
               <span>Light mode</span>
             </div>
           ) : (
-            <div className={mode?styles.darkitem:styles.item} onClick={() => Dispatch(darkmode())}>
+            <div className={mode ? styles.darkitem : styles.item} onClick={() => Dispatch(darkmode())}>
               <NightsStayIcon />
               <span>Dark mode</span>
             </div>
           )}
           {id != 0 && (
-            <div className={mode?styles.darkitem:styles.item} onClick={() => mutaion.mutate()}>
+            <div className={mode ? styles.darkitem : styles.item} onClick={() => mutaion.mutate()}>
               <LogoutIcon />
               <span>Logout</span>
             </div>
           )}
           <hr />
           <div className={styles.info}>
-            <h2 className={styles.developer}>Developed by: Aftabbb Alam</h2>
+            <h2 className={styles.developer}>Developed by: Er Aftab Alam</h2>
             <span>Copyright @ 2023</span>
           </div>
         </div>
