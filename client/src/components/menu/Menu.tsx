@@ -227,7 +227,7 @@ const Menu = ({ setOpen }: ChildProps) => {
           )}
           <hr />
           <div className={styles.info}>
-            <h2 className={styles.developer}>Developed by: Aftab Alam</h2>
+            <h2 className={styles.developer}>Developed by: Aftabbb Alam</h2>
             <span>Copyright @ 2023</span>
           </div>
         </div>
