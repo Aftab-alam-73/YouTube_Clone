@@ -168,6 +168,7 @@ const handleDislike=(e:any) => {
             height="350px"
             src={isSuccess &&data.data[0]?.videoUrl}
             allowFullScreen
+            
             style={{ borderRadius: "10px" }}
             className={styles.frame}
           ></iframe>
@@ -192,7 +193,7 @@ const handleDislike=(e:any) => {
            <button className={styles.like}
            title="I like this"
            onClick={handleLike}
-           >{likeQuery.isLoading?<ThumbUpAltOutlinedIcon/>: likeQuery.data?.data.includes(id)?<ThumbUpAltIcon/>:<ThumbUpAltOutlinedIcon/>}{likeQuery.isLoading?0: likeQuery.data?.data.length}</button>
+           >{likeQuery.isLoading?<ThumbUpAltOutlinedIcon className={styles.icon} />: likeQuery.data?.data.includes(id)?<ThumbUpAltIcon className={styles.icon} />:<ThumbUpAltOutlinedIcon className={styles.icon} />}{likeQuery.isLoading?0: likeQuery.data?.data.length}</button>
            <button className={styles.dislike}
            title="I dislike this"
            onClick={handleDislike}
@@ -211,7 +212,10 @@ const handleDislike=(e:any) => {
            {data.data[0].descriptions}
            
         </div>
-        <Comments/>
+        <div className={styles.BigScreenComments}>
+
+        <Comments />
+        </div>
       </div>
 
       <div className={styles.right}>
@@ -222,7 +226,9 @@ const handleDislike=(e:any) => {
           })
         }
        
-       
+       <div className={styles.responsiveComment}>
+        <Comments/>
+       </div>
        
       </div>
     </div>

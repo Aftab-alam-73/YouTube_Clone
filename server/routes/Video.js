@@ -1,5 +1,5 @@
 import express from 'express';
-import { addvideo, getvideo, getvideos ,deletevideo,getSpecificChannelVideos, getSuggestionvideos, subscriptionvideos, } from '../controllers/video.js';
+import { addvideo, getvideo, getvideos ,deletevideo,getSpecificChannelVideos, getSuggestionvideos, subscriptionvideos} from '../controllers/video.js';
 import {verifyToken} from '../jwt.js'
 const router=express.Router();
 

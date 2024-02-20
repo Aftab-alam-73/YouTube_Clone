@@ -2,6 +2,7 @@ import { db } from "../connection.js";
 import bcrypt from 'bcrypt'
 import { getToken } from "../jwt.js";
 
+
 // Signup
 
 export const signup = async(req, res) => {

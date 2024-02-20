@@ -42,3 +42,36 @@
     height: 30px;
     border-radius: 50%;
 }
+@media screen and (min-width: 390px) and (max-width: 430px) {
+    
+    .container{
+       
+        gap: 3px;
+        border: 2px solid blue;
+        padding: 3px;
+        
+    }
+}
+@media screen and (min-width: 375px) and (max-width: 380px) 
+{
+    .icon{
+        display: none !important;
+    }
+    .container{
+       
+        gap: 3px;
+        border: 2px solid blue;
+        padding: 3px;
+        
+    }
+    .chnnelContainer{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+         font-size: 10px;
+    }
+}

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     width: 6%;
-    margin-right: 10px;
+    
 }
 
 .item{
@@ -43,3 +43,34 @@
     text-decoration: none;
     color: inherit;
 }
+
+.responsiveLogout{
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .container{
+        padding-left: 10px;
+    }
+}
+@media screen and (min-width:375px) and (max-width: 380px) {
+   .icon{
+    font-size: 13px !important;
+    
+   }
+   .title{
+    font-size: 6px !important;
+   }
+   .responsiveLogout{
+    display: block;
+    font-size: 13px;
+   }
+  }
+  @media screen and (min-width: 390px) and (max-width: 430px) {
+    .container{
+     padding-left: 20px;
+   
+    }
+    .responsiveLogout{
+        display: block;
+       }
+  }
