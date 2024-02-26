@@ -1,5 +1,5 @@
 import { prisma } from "../connection.js";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs'
 import { getToken } from "../jwt.js";
 
 // Signup
@@ -45,6 +45,7 @@ export const signin = async (req, res) => {
     });
     if (user) {
       const result = await bcrypt.compare(password, user.password);
+      
       if (result) {
         const token = getToken(user);
         const { password, ...others } = user;
