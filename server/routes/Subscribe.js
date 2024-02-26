@@ -1,6 +1,6 @@
 import express from 'express';
 import {verifyToken} from '../jwt.js'
-import { getSubscribedChannels, getsubscriber, subscribe, unsubscribe } from '../controllers/subscribe.js';
+import {  getSubscribedChannels, getsubscriber, subscribe, unsubscribe } from '../controllers/subscribe.js';
 
 const router=express.Router();
 

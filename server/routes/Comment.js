@@ -6,7 +6,7 @@ const router=express.Router();
 
 router.post('/addcomment',verifyToken,addComment)
 router.delete('/removecomment',verifyToken,removeComment)
-router.get('/getcomment/:id',getComment)
+router.get('/getcomment/:videoId',getComment)
 
 
 export default router;

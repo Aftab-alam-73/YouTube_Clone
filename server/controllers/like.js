@@ -1,16 +1,11 @@
-import { db } from "../connection.js";
+import { prisma} from "../connection.js";
 
 //  ADDING A LIKE.
-export const like=(req,res)=>{
+export const like=async(req,res)=>{
    const {userId,videoId}=req.body;
-   
    try{
-      const q="INSERT INTO LIKES (`userId`,`videoId`) VALUES(?)";
-      const value=[userId,videoId];
-      db.query(q,[value],(err)=>{
-        if(err) return res.status(500).json({success:false,message:err.message})
-        return res.status(200).json({success:true,message:"video has been liked successfully"});
-      })
+      const newLike=await prisma.likes.create({data:{userId,videoId}});
+         return res.status(200).json({success:true,message:"video has been liked successfully",data:newLike});
    }catch(err){
     return res.status(500).json({success:false,message:err.message});
    }
@@ -18,34 +13,32 @@ export const like=(req,res)=>{
 }
 
 // REMOVING A LIKE (DISLIKING VIDEO)
-export const dislike=(req,res)=>{
+export const dislike=async(req,res)=>{
    const {userId,videoId}=req.query;
-  
+    const data={
+      userId:Number(userId),
+      videoId:Number(videoId)
+    }
+    
    try{
-      const q="DELETE FROM LIKES WHERE userId=? AND videoId=?";
-      
-      db.query(q,[userId,videoId],(err,data)=>{
-        if(err) return res.status(500).json({success:false,message:err.message})
-        return res.status(200).json({success:true,message:"video disliked successfully"});
-      })
+      await prisma.likes.deleteMany({where:data})
+      return res.status(200).json({success:true,message:"video disliked successfully"});
+     
    }catch(err){
     return res.status(500).json({success:false,message:err.message})
    }
 }
 
 // GETING ALL THE USER'S ID WHO HAS LIKED A SPECIFIC VIDEO.
-export const getlikes=(req,res)=>{
+export const getlikes=async(req,res)=>{
     const {id}=req.params;
     try{
-        const q="SELECT userId FROM LIKES WHERE videoId=?";
-        db.query(q,[id],(err,data)=>{
-            if(err) return res.status(500).json({success:false,message:err.message})
-            const newdata= data.map((data)=>{
-             return data.userId;
-        })
-            return res.status(200).json(newdata);
-        })
+      const allLikes=await prisma.likes.findMany({where:{videoId:Number(id)}})
+     const data= allLikes.map(like => like.userId)
+      return res.status(200).json(data);
+    
     }catch(err){
     return res.status(500).json({success:false,message:err.message});
     }
 }
+

@@ -1,28 +1,31 @@
 import styles from './navbar.module.css';
-import Menu from '../menu/Menu';
-import ListIcon from '@mui/icons-material/List';
 import logo from '../../assets/logo.png';
-import SearchIcon from '@mui/icons-material/Search';
-import KeyboardVoiceSharpIcon from '@mui/icons-material/KeyboardVoiceSharp';
-import VideoCallSharpIcon from '@mui/icons-material/VideoCallSharp';
-import NotificationsSharpIcon from '@mui/icons-material/NotificationsSharp';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Menu from '../menu/Menu';
+import { SearchIcon,KeyboardVoiceSharpIcon,VideoCallSharpIcon,NotificationsSharpIcon,AccountCircleIcon,ListIcon } from '../../../data/icons';
+
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import User from '../user/User';
-import { useSelector } from 'react-redux'
+import { addSearchInput } from '../../redux/darkmodeSlice';
+import { useDispatch, useSelector } from 'react-redux'
 
 const Navbar = () => {
 const {id,username,profile}= useSelector((state: any) => state.user)
 
   const [open,setOpen]=useState<boolean>(false);
+  const Dispath=useDispatch()
+  const [searchInput,setSearchInput]=useState<string>("")
   const {mode}=useSelector((state:any) => state.darkMode)
- 
+  
   return (
     <div className={styles.container}>
       {open && <Menu setOpen={setOpen} />}
+      {/* Left Container */}
       <div className={styles.leftContainer}>
+          
+        <span className={styles.moreContainer}>
        <ListIcon className={styles.more} onClick={()=>setOpen(!open)} />
+        </span>
        <Link to='/' className={styles.link}>
        <div className={styles.logoContainer}>
        <img src={logo} alt="Youtube Logo" className={styles.logo}/>
@@ -30,17 +33,19 @@ const {id,username,profile}= useSelector((state: any) => state.user)
        </div>
        </Link>
       </div>
+      {/* Middle Container */}
       <div className={styles.middleContainer}>
         <div className={styles.searchContainer}>
          <div className={styles.search}>
-            <input type="text"  placeholder='Search...' className={mode? styles.darkInput:styles.input}/>
+            <input type="text" onChange={(e:any)=>Dispath(addSearchInput({searchInput:e.target.value}))} placeholder='Search...' className={mode? styles.darkInput:styles.input}/>
          </div>
-         <button className={mode?styles.darkSearchBtn:styles.searchBtn} title='Search'><SearchIcon/></button>
+         <button className={mode?styles.darkSearchBtn:styles.searchBtn} title='Search' ><SearchIcon className={styles.searchIcon}/></button>
         </div>
         <div className={mode?styles.darkMike:styles.mike}>
-         <KeyboardVoiceSharpIcon/>
+         <KeyboardVoiceSharpIcon className={styles.mikeIcon}/>
         </div>
       </div>
+      {/* Right Container */}
       <div className={styles.rightContainer}>
         {id!=0 && <Link to={'/upload'} className={styles.link}>
        <div className={mode?styles.darkUpload:styles.upload}title='Upload a video'>

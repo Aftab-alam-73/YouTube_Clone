@@ -9,8 +9,8 @@ import { makeRequest } from '../../axios';
 
 const Comment = ({comment}:any) => {
   const queryClient=useQueryClient()
-const {id}=useSelector((state:any) => state.user)
- const deleteMutation=useMutation({
+  const {id}=useSelector((state:any) => state.user)
+  const deleteMutation=useMutation({
   mutationFn:async(state:any) =>{
     return await makeRequest.delete(`/comments/removecomment?id=${state.id}`)
   },
@@ -20,12 +20,12 @@ const {id}=useSelector((state:any) => state.user)
  })
  const handledelete=(e:any)=>{
   e.preventDefault();
-  deleteMutation.mutate({id:comment.commentId})
+  deleteMutation.mutate({id:comment.id})
  }
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-      {comment.profile===null?<AccountCircleIcon style={{fontSize:"40px"}}/>: <img src={comment.profile} alt="profile" className={styles.img} />}
+      {comment.profile===null?<AccountCircleIcon style={{fontSize:"40px"}}/>: <img src={comment.user.profile} alt="profile" className={styles.img} />}
       </div>
       <div className={styles.right}>
         <div className={styles.first}>

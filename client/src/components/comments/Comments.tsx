@@ -7,7 +7,7 @@ import {useState} from 'react'
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useSelector } from "react-redux";
- 
+import toast from "react-hot-toast";
 
 const Comments = () => {
     const queryClient=useQueryClient();
@@ -40,7 +40,7 @@ const Comments = () => {
     const handleComment=(e:any)=>{
       e.preventDefault();
       if(id===0){
-        return alert("Please SignIn to comment");
+        return toast("Please SignIn to comment");
       }
       else if(comment=="")return;
       commentMutation.mutate({description:comment,userId:id,videoId:videoId})
@@ -84,7 +84,7 @@ const Comments = () => {
       <div className={styles.comments}>
         {
           isError?<span>Something went wrong!</span>:isLoading?<span>Loading comments...</span>:data.data.map((comment:any)=>{
-                     return <Comment key={comment.commentId} comment={comment} />
+                     return <Comment key={comment.id} comment={comment} />
 
           })
         }

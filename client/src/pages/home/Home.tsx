@@ -4,9 +4,12 @@ import Card from "../../components/card/Card";
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Home = () => {
+  const {searchInput}=useSelector((state:any)=>state.darkMode)
+  console.log("from Home",searchInput);
    const {type}=useParams()
-   console.log("type: " , type)
+  //  console.log("type: " , type)
   const {data,isError,isLoading}=useQuery({
     queryKey:["videos",type],
     queryFn:async() =>{
@@ -29,7 +32,9 @@ const Home = () => {
         <h2>Loading....</h2>
         </div>: 
        
-      data?.data.map((video:any)=>{
+      data?.data.filter((video:any)=>{
+         return video.title.toLowerCase().includes(searchInput.toLowerCase()) && video
+      }).map((video:any)=>{
         return  <Card video={video} key={video.id}/>
          
          

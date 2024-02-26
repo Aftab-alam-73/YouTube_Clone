@@ -5,7 +5,10 @@ import { useSelector } from 'react-redux';
 const User = () => {
   return (
     <div className={styles.container}>
-      <AccountCircleIcon />
+        
+      <span className={styles.iconContainer}>
+      <AccountCircleIcon className={styles.icon}/>
+      </span>
       <span>SignIn</span>
     </div>
   )
@@ -17,7 +20,10 @@ export interface channel{
   username:string;
   profile:string;
 }
+
+// This is for showing the subscribed channels
 export const Channel=({channeldata,setOpen}:any)=>{
+   
   const {mode}=useSelector((state:any)=>state.darkMode)
   return <Link className={mode?styles.darkchannelContainer:styles.chnnelContainer} to={`/profile/${channeldata.id}`} onClick={() => setOpen(false)}>
     {channeldata.profile==null?<AccountCircleIcon style={{fontSize:"35px"}}/>:<img src={channeldata.profile} alt='img' className={styles.img}/>}
