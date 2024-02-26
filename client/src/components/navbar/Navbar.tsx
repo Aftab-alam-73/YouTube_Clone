@@ -14,7 +14,6 @@ const {id,username,profile}= useSelector((state: any) => state.user)
 
   const [open,setOpen]=useState<boolean>(false);
   const Dispath=useDispatch()
-  const [searchInput,setSearchInput]=useState<string>("")
   const {mode}=useSelector((state:any) => state.darkMode)
   
   return (

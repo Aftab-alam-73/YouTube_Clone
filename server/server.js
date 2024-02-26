@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://65dcc4942e5823009dd8a0ec--bright-cheesecake-57616f.netlify.app/',
     credentials:true
 }));
 app.use('/api/auth',authRoutes);
@@ -21,9 +21,8 @@ app.use('/api/likes',likeRoutes);
 app.use('/api/comments',commentRoutes);
 app.use('/api/views',viewRoutes);
 
-app.get('/hello',(req,res)=>{
-    console.log(req.url)
-    console.log(req.method)
+app.get('/',(req,res)=>{
+    
     res.json("Hello World")
 })
 
