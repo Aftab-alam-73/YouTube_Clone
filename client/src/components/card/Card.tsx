@@ -11,18 +11,19 @@ const Card = ({video}:any) => {
       return await makeRequest.get(`/views/getview/${video.id}`);
     }
   })
-  // console.log("views: ",viewQuery.data?.data.length)
+
+ 
   return (
     <div>
       <Link to={`/video/${video.id}`} className={styles.link}>
     <div className={styles.container} >
      <img src={video.imgUrl} alt="thumbnail"  className={styles.img}/>
      <div className={styles.channelInfo}>
-      {video.profile===null?<AccountCircleIcon style={{fontSize:"35px"}}/>:<img src={video.profile} alt="Channel Image" className={styles.channelImg} />}
+      {video?.user?.profile===null?<AccountCircleIcon style={{fontSize:"35px"}}/>:<img src={video?.user?.profile} alt="Channel Image" className={styles.channelImg} />}
       <span className={styles.videoTitle}>{video.title} </span>
      </div>
      <div className={styles.videoInfo}>
-      <span className={styles.channelName}>{video.username}</span>
+      <span className={styles.channelName}>{video.user?.username}</span>
      <span>{viewQuery.isSuccess?viewQuery.data?.data.length:0} views. {moment(video.createdAt).fromNow()} </span>
      </div>
      </div>

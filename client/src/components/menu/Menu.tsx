@@ -92,7 +92,7 @@ const Menu = ({ setOpen }: ChildProps) => {
             <ThumbUpOutlinedIcon className={styles.icon}/>
             <span>Liked videos</span>
           </div>
-          {channelQuery.data?.data.length != 0 && id != 0 && (
+          {channelQuery.data?.data.length > 0 && id != 0 && (
             <>
               <hr />
               <p>Subscriptions</p>

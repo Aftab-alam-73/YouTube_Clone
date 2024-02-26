@@ -29,6 +29,12 @@ const Upload = () => {
     videoDesc:"",
     userId:id
   });
+  const isUploadable=():boolean=>{
+     if(videodata.imageUrl=="" || videodata.videoUrl=="" || videodata.videoTitle=="" || videodata.videoDesc==""){
+      return true;
+     }
+     return false;
+  }
   const mutation=useMutation({
     mutationFn:(state:videotype)=>{
       return makeRequest.post("/video/addvideo",state);
@@ -126,7 +132,7 @@ const Upload = () => {
              
             }}
           />
-          <button className={mode?styles.darkbtn:styles.btn} onClick={handleUpload}>Upload</button>
+          <button disabled={ isUploadable()} className={mode?styles.darkbtn:styles.btn} onClick={handleUpload}>Upload</button>
         </form>
      
       </div>

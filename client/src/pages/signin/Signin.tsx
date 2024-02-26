@@ -35,14 +35,14 @@ const Signin = () => {
     return makeRequest.post('/auth/signin',state)
   },
   onSuccess:(res)=>{
-    console.log("from singin",res.data.data);
-    console.log("success",res.data.success);
+    // console.log("from singin",res.data.data);
+    // console.log("success",res.data.success);
     if(res.data.success){
       Dispatch(addUser(res.data.data));
       navigate('/')
     }else{
       setError(true);
-      console.log("ErrorMessage",res.data.message);
+      // console.log("ErrorMessage",res.data.message);
       setErrorMessage(res.data.message);
       setTimeout(() => {
         setError(false);

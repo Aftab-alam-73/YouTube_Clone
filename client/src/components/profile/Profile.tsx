@@ -80,6 +80,7 @@ const Profile = () => {
           return makeRequest.get(`/video/getchannelvideos/${profileId}`);
         }
       })
+      console.log("data ",data?.data);
     //----------------------------------------------------------------
     // Fetching the number of subscribers of the channel.  
       const subscribersQuery=useQuery({
@@ -112,11 +113,11 @@ const Profile = () => {
       <img src={Banner} alt="Banner" className={styles.banner} />
      <div className={styles.channelInfo}>
       <label title='Edit profile'>
-      {isSuccess && data?.data[0]?.profile===null?<AccountCircle style={{fontSize:"100px"}}/>: <img src={data?.data[0]?.profile} alt="Profile" className={styles.img}/>}
+      {isSuccess && data?.data[0]?.user?.profile===null?<AccountCircle style={{fontSize:"100px"}}/>: <img src={data?.data[0]?.user?.profile} alt="Profile" className={styles.img}/>}
      { profileId==id && <input type="file" accept='image/*' style={{display:"none"}} onChange={(e:any)=>setImage(e.target.files[0])}/>}
       </label>
        <div className={styles.info}>
-       <span>Channel Name:<span className={styles.bold}> {isSuccess && data.data[0]?.username}</span></span>
+       <span>Channel Name:<span className={styles.bold}> {isSuccess && data.data[0]?.user?.username}</span></span>
        <span>Total Number Of Subscribers:<span className={styles.bold}> {subscribersQuery.isSuccess && subscribersQuery.data.data.length}</span> </span>
        <span>Total Number Of Videos Uploaded: <span className={styles.bold}> {isSuccess && data.data.length} videos</span></span>
        </div>

@@ -225,7 +225,40 @@
 .username {
   font-weight: 600;
 }
-
+@media screen and (max-width: 360px) {
+  .leftContainer{
+    padding-left: 10px;
+  }
+  .moreContainer {
+    display: none;
+  }
+  .notifications {
+    display: none;
+  }
+  .darkNotification {
+    display: none;
+  }
+  .mike {
+    display: none;
+  }
+  .input {
+    width: 100px;
+    
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+   
+   
+  }
+  .darkInput {
+    width: 30px;
+  }
+  .searchBtn{
+    display: none;
+  }
+}
 @media screen and (min-width: 390px) and (max-width: 430px) {
   .leftContainer{
     padding-left: 10px;
@@ -243,10 +276,21 @@
     display: none;
   }
   .input {
-    width: 30px;
+    width: 100px;
+    
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+   
+   
   }
   .darkInput {
     width: 30px;
+  }
+  .searchBtn{
+    display: none;
   }
   
 }

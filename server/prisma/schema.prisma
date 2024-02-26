@@ -14,7 +14,7 @@ model User {
   id        Int         @id @default(autoincrement())
   username  String      @unique
   email     String
-  password  String
+  password  String?
   profile   String?
   Video     Video[]
   Subscribe Subscribe[]

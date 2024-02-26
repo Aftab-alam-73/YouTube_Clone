@@ -6,14 +6,17 @@ import { SearchIcon,KeyboardVoiceSharpIcon,VideoCallSharpIcon,NotificationsSharp
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import User from '../user/User';
-import { useSelector } from 'react-redux'
+import { addSearchInput } from '../../redux/darkmodeSlice';
+import { useDispatch, useSelector } from 'react-redux'
 
 const Navbar = () => {
 const {id,username,profile}= useSelector((state: any) => state.user)
 
   const [open,setOpen]=useState<boolean>(false);
+  const Dispath=useDispatch()
+  const [searchInput,setSearchInput]=useState<string>("")
   const {mode}=useSelector((state:any) => state.darkMode)
- 
+  
   return (
     <div className={styles.container}>
       {open && <Menu setOpen={setOpen} />}
@@ -34,9 +37,9 @@ const {id,username,profile}= useSelector((state: any) => state.user)
       <div className={styles.middleContainer}>
         <div className={styles.searchContainer}>
          <div className={styles.search}>
-            <input type="text"  placeholder='Search...' className={mode? styles.darkInput:styles.input}/>
+            <input type="text" onChange={(e:any)=>Dispath(addSearchInput({searchInput:e.target.value}))} placeholder='Search...' className={mode? styles.darkInput:styles.input}/>
          </div>
-         <button className={mode?styles.darkSearchBtn:styles.searchBtn} title='Search'><SearchIcon className={styles.searchIcon}/></button>
+         <button className={mode?styles.darkSearchBtn:styles.searchBtn} title='Search' ><SearchIcon className={styles.searchIcon}/></button>
         </div>
         <div className={mode?styles.darkMike:styles.mike}>
          <KeyboardVoiceSharpIcon className={styles.mikeIcon}/>

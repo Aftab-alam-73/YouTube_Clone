@@ -23,6 +23,7 @@ export interface channel{
 
 // This is for showing the subscribed channels
 export const Channel=({channeldata,setOpen}:any)=>{
+   
   const {mode}=useSelector((state:any)=>state.darkMode)
   return <Link className={mode?styles.darkchannelContainer:styles.chnnelContainer} to={`/profile/${channeldata.id}`} onClick={() => setOpen(false)}>
     {channeldata.profile==null?<AccountCircleIcon style={{fontSize:"35px"}}/>:<img src={channeldata.profile} alt='img' className={styles.img}/>}

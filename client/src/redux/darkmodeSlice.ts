@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
-    mode:false
+    mode:false,
+    searchInput:""
 }
 
 const darkmodeSlice=createSlice({
@@ -13,9 +14,12 @@ const darkmodeSlice=createSlice({
       },
       lightmode:(state)=>{
         state.mode = false;
+      },
+      addSearchInput:(state,actions)=>{
+        state.searchInput=actions.payload.searchInput;
       }
     }
 })
 
 export default darkmodeSlice.reducer;
-export const {darkmode, lightmode} = darkmodeSlice.actions;
+export const {darkmode, lightmode,addSearchInput} = darkmodeSlice.actions;

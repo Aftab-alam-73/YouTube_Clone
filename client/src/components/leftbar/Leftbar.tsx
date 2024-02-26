@@ -7,11 +7,13 @@ import { useMutation } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../../redux/userSlice";
+import { useState } from "react";
 const Leftbar = () => {
 
   const { id } = useSelector((state: any) => state.user);
   const { mode } = useSelector((state: any) => state.darkMode);
   const Dispatch = useDispatch();
+  
   const mutaion = useMutation({
     mutationFn: () => {
       return makeRequest.post("/auth/logout");

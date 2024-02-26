@@ -53,10 +53,7 @@
     }
 }
 @media screen and (min-width:375px) and (max-width: 380px) {
-   .icon{
-    font-size: 13px !important;
-    
-   }
+   
    .title{
     font-size: 6px !important;
    }
@@ -64,6 +61,16 @@
     display: block;
     font-size: 13px;
    }
+  }
+  @media screen and (max-width: 360px){
+    
+       .title{
+        font-size: 6px !important;
+       }
+       .responsiveLogout{
+        display: block;
+        font-size: 13px;
+       }
   }
   @media screen and (min-width: 390px) and (max-width: 430px) {
     .container{

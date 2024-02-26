@@ -14,7 +14,7 @@ import { addVideo } from "../../redux/videoSlice";
 import { useEffect } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
-
+import toast from "react-hot-toast";
 const Video = () => {
   const queryClient=useQueryClient();
   const Dispatch=useDispatch();
@@ -28,22 +28,32 @@ const Video = () => {
       return await makeRequest.get(`/video/getvideo/${videoId}`)
     }
   })
+  // console.log("single video: " ,data?.data)
   useEffect(() => {
-    if (isSuccess && isFetched && data.data.length > 0) {
-      Dispatch(addVideo(data.data[0]));
+    if (isSuccess && isFetched && data?.data) {
+     
+      Dispatch(addVideo(data.data));
     }
+    const handleview=()=>{
+      if(id===0){
+        return;
+       }else if(viewQuery.isSuccess && !viewQuery.data?.data.includes(id)){
+         viewMutation.mutate({userId:id,videoId:Number(videoId)})
+       }
+     }
+     setTimeout(handleview, 5000)
   }, [isSuccess, isFetched, data]);
   //----------------------------------------------------------------
   // HANDLING LIKE AND DISLIKES VIDEO.
    const likeQuery=useQuery({
-     queryKey:["likes"],
+     queryKey:["likes",videoId],
      queryFn:async()=>{
        return await makeRequest.get(`/likes/getlikes/${videoId}`)
      }
    })
 
    const likeMutation=useMutation({
-    mutationFn: async(state:any) => {
+    mutationFn: async(state:LikeType) => {
       return state.action==="like"?await makeRequest.post('/likes/like',state.data):
      await makeRequest.delete(`/likes/dislike?userId=${state.data.userId}&videoId=${state.data.videoId}`);
     },
@@ -58,9 +68,9 @@ const handleLike=(e:any)=>{
   e.preventDefault();
   if(id===0) 
   {
-   return alert("Please SingIn to like a video")
+   return toast("Please SingIn to like a video")
   }
-  likeMutation.mutate({action:likeQuery.data?.data.includes(id)?"dislike":"like",data:{userId:id,videoId:videoId}},)
+  likeMutation.mutate({action:likeQuery.data?.data.includes(id)?"dislike":"like",data:{userId:Number(id),videoId:Number(videoId)}},)
 }
 const handleDislike=(e:any) => {
    e.preventDefault();
@@ -68,7 +78,7 @@ const handleDislike=(e:any) => {
     if (likeQuery.data?.data.includes(id)) {
       likeMutation.mutate({
         action: "dislike",
-        data: { userId: id, videoId: videoId },
+        data: { userId: id, videoId: Number(videoId) },
       });
     
   };
@@ -88,15 +98,16 @@ const handleDislike=(e:any) => {
     },
     onError:()=>{
       console.log("Something went wrong in subscribe or unsubscribe request");
+      toast("Something went wrong in subscribe or unsubscribe request")
     }
   })
   const handleSubscribe=(e:any) => {
      e.preventDefault();
      if(id==0){
-      alert("Please singin to subscribe");
+      toast("Please singin to subscribe")
      }
      else if(id===userId){
-       alert("You can not subscribe your own channel");
+       toast("You can not subscribe your own channel");
      }else{
        subsMutation.mutate({action:subscribersQuery.data?.data.includes(id)?"unsubscribe":"subscribe",data:{subscriberId:id,channelId:userId}})
      }
@@ -128,18 +139,7 @@ const handleDislike=(e:any) => {
       queryClient.invalidateQueries(["views",videoId]);
     }
    })
-   useEffect(()=>{
-    //  console.log("inside request :",id,viewQuery.data?.data)
-     const handleview=()=>{
-       if(id===0){
-         return;
-        }else if(viewQuery.isSuccess && !viewQuery.data?.data.includes(id)){
-          viewMutation.mutate({userId:id,videoId:videoId})
-        }
-      }
-      handleview()
-  
-   },[videoId])
+
   //------------------------------------------------------------------
   const suggestionVideoquery=useQuery({
     queryKey:["Suggestionvideos",videoId],
@@ -147,7 +147,7 @@ const handleDislike=(e:any) => {
       return await makeRequest.get(`/video/getsuggestonvideos/${videoId}`)
     }
   })
-  console.log("Suggestion videos: ",suggestionVideoquery.data?.data) 
+  // console.log("Suggestion videos: ",suggestionVideoquery.data?.data) 
   if(isLoading) return <div className={styles.custom}>
     <h1>Please Wait</h1>
     <h2>Loading....</h2>
@@ -158,7 +158,6 @@ const handleDislike=(e:any) => {
     </div>
   
   
-  
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -166,7 +165,7 @@ const handleDislike=(e:any) => {
           <iframe
             width="100%"
             height="350px"
-            src={isSuccess &&data.data[0]?.videoUrl}
+            src={isSuccess && data.data?.videoUrl}
             allowFullScreen
             
             style={{ borderRadius: "10px" }}
@@ -175,11 +174,11 @@ const handleDislike=(e:any) => {
           <span className={styles.videoTitle}>{isSuccess && data.data[0]?.title}</span>
         </div>
         <div className={styles.channelInfo}>
-        <Link to={`/profile/${userId}`} className={styles.link}>
+        <Link to={`/profile/${data?.data?.user.id}`} className={styles.link}>
          <div className={styles.channel}>
-         {isSuccess && data.data[0]?.profile===null?<AccountCircle style={{fontSize:"40px"}}/>: <img src={data.data[0].profile} alt="profile" className={styles.img} />}
+         {isSuccess && data.data?.user.profile===null?<AccountCircle style={{fontSize:"40px"}}/>: <img src={data.data.user.profile} alt="profile" className={styles.img} />}
            <div className={styles.channelText} title="Chnnel info">
-            <span className={styles.channelName}>{isSuccess && data.data[0]?.username}</span>
+            <span className={styles.channelName}>{isSuccess && data.data?.user.username}</span>
             <span className={styles.subscribers}>{subscribersQuery.isLoading?0: subscribersQuery.data?.data.length} subscribers</span>
            </div>
          </div>
@@ -208,8 +207,8 @@ const handleDislike=(e:any) => {
         </div>
         <div className={styles.desc}>
           <span className={styles.descSpan}>{viewQuery.isSuccess? viewQuery.data.data.length:0} views</span>
-          <span className={styles.descSpan}>{moment(data.data[0].createdAt).fromNow()}</span>
-           {data.data[0].descriptions}
+          <span className={styles.descSpan}>{moment(data.data.createdAt).fromNow()}</span>
+           {data.data.description}
            
         </div>
         <div className={styles.BigScreenComments}>
@@ -221,8 +220,9 @@ const handleDislike=(e:any) => {
       <div className={styles.right}>
         <h1 className={styles.suggessionTitle}>More videos</h1>
         {
+          
           suggestionVideoquery.isError?<h1>Someting went wrong</h1>:suggestionVideoquery.isSuccess && suggestionVideoquery.data?.data.map((suggession:any)=>{
-            return  <SuggessionCard key={suggession.videoId} suggession={suggession}/>
+            return  <SuggessionCard key={suggession.id} suggession={suggession}/>
           })
         }
        
