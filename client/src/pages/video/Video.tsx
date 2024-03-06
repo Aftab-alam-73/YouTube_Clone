@@ -159,7 +159,9 @@ const handleDislike=(e:any) => {
   
   
   return (
+    
     <div className={styles.container}>
+     
       <div className={styles.left}>
         <div className={styles.video}>
           <iframe
@@ -171,7 +173,7 @@ const handleDislike=(e:any) => {
             style={{ borderRadius: "10px" }}
             className={styles.frame}
           ></iframe>
-          <span className={styles.videoTitle}>{isSuccess && data.data[0]?.title}</span>
+          <span className={styles.videoTitle}>{isSuccess && data.data?.title}</span>
         </div>
         <div className={styles.channelInfo}>
         <Link to={`/profile/${data?.data?.user.id}`} className={styles.link}>
@@ -215,6 +217,7 @@ const handleDislike=(e:any) => {
 
         <Comments />
         </div>
+        
       </div>
 
       <div className={styles.right}>
@@ -231,6 +234,7 @@ const handleDislike=(e:any) => {
        </div>
        
       </div>
+    
     </div>
   );
 };

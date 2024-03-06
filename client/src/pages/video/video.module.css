@@ -1,78 +1,76 @@
-.container{
- display: flex;
- gap: 10px;
- height: 94vh;
- margin-left:90px;
- overflow: auto;
-
+.container {
+  display: flex;
+  gap: 10px;
+  height: 94vh;
+  margin-left: 90px;
+  overflow: auto;
 }
-.left{
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    
+.left {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.img{
+.img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   cursor: pointer;
 }
-.video{
+.video {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
-.videoTitle{
+.videoTitle {
   font-size: 20px;
   font-weight: 600;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   line-height: 23px;
 }
-.channelInfo{
- display: flex;
- align-items: center;
- gap: 40px;
- 
+.channelInfo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
-.channel{
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 15px;
+.channel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
-.channelText{
- display: flex;
- flex-direction: column;
- gap: 3px;
+.channelText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
-.channelName{
+.channelName {
   font-weight: 600;
   cursor: pointer;
 }
-.subscribers{
-   font-size: 14px;
+.subscribers {
+  font-size: 14px;
 }
-.subscribeBtn{
+.subscribeBtn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-.btn1{
+.btn1 {
   padding: 10px;
   width: 80px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
 }
-.btn1:hover{
+.btn1:hover {
   background-color: lightgray;
 }
-.btn2{
+.btn2 {
   padding: 10px;
   width: 90px;
   border: none;
@@ -81,19 +79,18 @@
   background-color: #000;
   color: #fff;
 }
-.btn2:hover{
+.btn2:hover {
   opacity: 0.8;
 }
-.buttons{
+.buttons {
   display: flex;
   align-items: center;
   gap: 10px;
- 
 }
-.likesBtn{
+.likesBtn {
   display: flex;
 }
-.like{
+.like {
   width: 100px;
   padding: 4px 15px;
   display: flex;
@@ -104,7 +101,7 @@
   border: none;
   cursor: pointer;
 }
-.dislike{
+.dislike {
   width: 80px;
   padding: 4px;
   border: none;
@@ -113,13 +110,13 @@
   border-bottom-right-radius: 30px;
   cursor: pointer;
 }
-.like:hover{
+.like:hover {
   background-color: lightgray;
 }
-.dislike:hover{
+.dislike:hover {
   background-color: lightgray;
 }
-.share{
+.share {
   width: 90px;
   padding: 6px 10px;
   border: none;
@@ -128,29 +125,28 @@
   gap: 5px;
   border-radius: 30px;
   cursor: pointer;
-
 }
-.share:hover{
+.share:hover {
   background-color: lightgray;
 }
 
-.right{
+.right {
   width: 40%;
   height: 100%;
- display: flex;
- flex-direction: column;
- gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.suggessionTitle{
+.suggessionTitle {
   font-size: 18px;
   margin-bottom: 20px;
 }
-.frame{
+.frame {
   border: none;
-  background-color:black;
+  background-color: black;
   border: 1px solid gray;
 }
-.custom{
+.custom {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -160,220 +156,209 @@
   gap: 30px;
   background-color: bisque;
 }
-.desc{
-  
+.desc {
   border-radius: 5px;
   padding: 10px;
   text-align: justify;
   color: gray;
   background-color: #f5f5f4;
-   height: fit-content;
+  height: 100%;
   overflow: wrap-word;
-  
- 
 }
-.descSpan{
+.descSpan {
   margin-right: 10px;
   color: black;
 }
-.link{
+.link {
   text-decoration: none;
   color: inherit;
 }
-.responsiveComment{
+.responsiveComment {
   display: none;
 }
-@media screen  and (max-width: 360px){
-  .container{
-    
+@media screen and (max-width: 360px) {
+  .container {
     flex-direction: column;
     margin-left: 10px;
     height: 100vh;
     width: 100%;
+  }
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+  .videoTitle {
+    font-size: 12px;
+  }
+  .btn1 {
+    display: none;
+  }
+  .btn2 {
+    padding: 5px;
+  }
+  .share {
+    display: none;
+  }
+  .icon {
+    font-size: 13px !important;
+  }
+  .like {
+    width: 50px;
+    padding: 2px 10px;
+  }
+  .dislike {
+    width: 40px;
+    padding: 2px;
+  }
+  .subscribeBtn {
+    font-size: 12px;
+  }
+  .channelInfo {
+    gap: 20px;
+  }
+  .BigScreenComments {
+    display: none;
+  }
+  .responsiveComment {
+    display: block;
+  }
+}
+@media screen and (min-width: 390px) and (max-width: 430px) {
+  .container {
+    flex-direction: column;
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .left {
+    width: 100%;
+  }
+  .videoTitle {
+    font-size: 12px;
+  }
+  .btn1 {
+    display: none;
+  }
+  .btn2 {
+    padding: 5px;
+  }
+  .share {
+    display: none;
+  }
+  .icon {
+    font-size: 13px !important;
+  }
+  .like {
+    width: 50px;
+    padding: 2px 10px;
+  }
+  .dislike {
+    width: 40px;
+    padding: 2px;
+  }
+  .subscribeBtn {
+    font-size: 12px;
+  }
+  .channelInfo {
+    gap: 20px;
+  }
+  .BigScreenComments {
+    display: none;
+  }
+  .responsiveComment {
+    display: block;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 820px) {
+  .container {
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .BigScreenComments {
+    display: none;
+  }
+  .responsiveComment {
+    display: block;
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 380px) {
+  .container {
+    flex-direction: column;
+    margin-left: 0;
     
-    
+   
   }
   .container::-webkit-scrollbar{
     display: none;
   }
-  .left{
+  .left {
     width: 100%;
-  }
-  .videoTitle{
-    font-size: 12px;
-  }
-  .btn1{
-    display: none;
-  }
-  .btn2{
-    padding: 5px;
-  }
-  .share{
-    display: none;
-  }
-  .icon{
-    font-size: 13px !important;
-  }
-  .like{
-    width: 50px;
-    padding: 2px 10px;
-  }
-  .dislike{
-    width: 40px;
-    padding: 2px;
-   
-  }
-  .subscribeBtn{
-    font-size: 12px;
-  }
-  .channelInfo{
-   
-    gap: 20px;
-    
-   }
-  .BigScreenComments{
-    display: none;
-  }
-  .responsiveComment{
-    display: block;
-    
-  }
-}
-@media screen and (min-width: 390px) and (max-width: 430px) {
+   display: block;
  
-  .container{
-    flex-direction: column;
-    margin-left: 10px;
-    width: 100%;
    
   }
-
-  .left{
+  .right{
     width: 100%;
-    
+   
+   
+   
   }
-  .videoTitle{
+  .videoTitle {
     font-size: 12px;
   }
-  .btn1{
+  .btn1 {
     display: none;
   }
-  .btn2{
+  .btn2 {
     padding: 5px;
   }
-  .share{
+  .share {
     display: none;
   }
-  .icon{
+  .icon {
     font-size: 13px !important;
   }
-  .like{
+  .like {
     width: 50px;
     padding: 2px 10px;
   }
-  .dislike{
+  .dislike {
     width: 40px;
     padding: 2px;
-   
   }
-  .subscribeBtn{
+  .subscribeBtn {
     font-size: 12px;
+    
   }
-  .channelInfo{
-   
+  .channelInfo {
     gap: 20px;
-    
-   }
-  .BigScreenComments{
+  }
+  .BigScreenComments {
     display: none;
   }
-  .responsiveComment{
+  .responsiveComment {
     display: block;
-    
-  }
-  
-}
-@media screen and (min-width: 768px) and (max-width:820px) {
-  .container{
-    flex-direction: column;
-    margin-left: 10px;
-  }
-
-  .left{
-    width: 100%;
-  }
-  
-  .BigScreenComments{
-    display: none;
-  }
-  .responsiveComment{
-    display: block;
-    
-  }
-}
-@media screen and (min-width: 375px) and (max-width: 380px) {
-  .container{
-    flex-direction: column;
-    margin-left: 0px;
-  }
-  .videoTitle{
-    font-size: 12px;
-  }
-  .btn1{
-    display: none;
-  }
-  .btn2{
-    padding: 5px;
-  }
-  .share{
-    display: none;
-  }
-  .icon{
-    font-size: 13px !important;
-  }
-  .like{
-    width: 50px;
-    padding: 2px 10px;
-  }
-  .dislike{
-    width: 40px;
-    padding: 2px;
-   
-  }
-  .subscribeBtn{
-    font-size: 12px;
-  }
-  .channelInfo{
-   
-    gap: 20px;
-    
-   }
-  .left{
-    width: 100%;
-  }
-  
-  .BigScreenComments{
-    display: none;
-  }
-  .responsiveComment{
-    display: block;
-    
   }
 }
 
-@media screen and (min-width:1024px) and (max-width:1024px) {
-  .container{
+@media screen and (min-width: 1024px) and (max-width: 1024px) {
+  .container {
     margin-left: 20px;
   }
- .btn1{
-  display: none;
- }
- .left{
-  width: 70%;
- }
-  .right{
+  .btn1 {
+    display: none;
+  }
+  .left {
+    width: 70%;
+  }
+  .right {
     width: 30%;
-    
   }
 }
-

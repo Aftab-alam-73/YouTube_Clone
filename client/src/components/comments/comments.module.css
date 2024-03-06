@@ -106,7 +106,7 @@
 
 @media screen and (min-width: 375px) and (max-width: 380px) {
   .container {
-    width: 100vw;
+    width: 100%;
     margin-top: 0px;
   }
   .addCommentContainer {
@@ -132,7 +132,7 @@
 @media screen and (min-width: 768px) and (max-width: 820px) {
   .container {
     width: 100vw;
-   
+    margin-top: 0;
   }
 }
 @media screen and (min-width: 390px) and (max-width: 430px) {

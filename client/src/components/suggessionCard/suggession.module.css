@@ -76,7 +76,8 @@
 }
 @media screen and (min-width: 375px) and (max-width: 380px) {
     .container{
-        width: 100vw;
+        width: 100%;
+        padding-right: 0;
         
     }
     .title{

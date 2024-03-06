@@ -11,9 +11,9 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://65dcc4942e5823009dd8a0ec--bright-cheesecake-57616f.netlify.app/',
+    origin: 'http://localhost:5173',
     credentials:true
-}));
+}));g
 app.use('/api/auth',authRoutes);
 app.use('/api/video',videoRoutes);
 app.use('/api/subscribes',subscribeRoutes);
