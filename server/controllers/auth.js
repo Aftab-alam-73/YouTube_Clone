@@ -50,13 +50,18 @@ export const signin = async (req, res) => {
         const token = getToken(user);
         const { password, ...others } = user;
         return res
-          .status(200)
-          .cookie("access_token", token, { httpOnly: true })
-          .json({
-            success: true,
-            message: "User signed in successfully",
-            data: others,
-          });
+  .status(200)
+  .cookie("access_token", token, { 
+    httpOnly: true,
+    sameSite: 'None',
+    secure: true ,
+    expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+  })
+  .json({
+    success: true,
+    message: "User signed in successfully",
+    data: others,
+  });
       } else {
         return res
           .status(500)
