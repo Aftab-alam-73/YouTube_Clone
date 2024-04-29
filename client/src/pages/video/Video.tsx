@@ -239,4 +239,4 @@ const handleDislike=(e:any) => {
   );
 };
 
-export default Video;
+export default Video; 

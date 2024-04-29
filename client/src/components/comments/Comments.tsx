@@ -1,6 +1,6 @@
 import styles from "./comments.module.css";
 import SortIcon from "@mui/icons-material/Sort";
-import profile from "../../assets/profile.gif";
+import { AccountCircleIcon } from "../../../data/icons";
 import Comment from "../comment/Comment";
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 import {useState} from 'react'
@@ -13,10 +13,10 @@ const Comments = () => {
     const queryClient=useQueryClient();
     const {videoId}=useSelector((state:any) => state.video)
     const {mode}=useSelector((state:any) => state.darkMode)
-    const {id}=useSelector((state:any) => state.user)
+    const {id,profile}=useSelector((state:any) => state.user)
     const [comment,setComment]=useState<any>("")
     const [onfocus,setFocus]=useState<Boolean>(false)
-    
+   
     const {data,isError,isLoading}=useQuery({
       queryKey:["comments",videoId],
       queryFn:async()=>{
@@ -56,7 +56,7 @@ const Comments = () => {
       </div>
     </div>
       <div className={styles.addCommentContainer}>
-        <img src={profile} alt="profile" className={styles.img} />
+       {profile===null?<AccountCircleIcon style={{fontSize:"40px"}}/>: <img src={profile} alt="profile" className={styles.img} />}
         <input
           type="text"
           placeholder="Add a commment..."

@@ -1,7 +1,5 @@
 import styles from './comment.module.css'
 import moment from 'moment';
-// import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
-// import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useSelector } from 'react-redux';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -22,27 +20,22 @@ const Comment = ({comment}:any) => {
   e.preventDefault();
   deleteMutation.mutate({id:comment.id})
  }
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-      {comment.profile===null?<AccountCircleIcon style={{fontSize:"40px"}}/>: <img src={comment.user.profile} alt="profile" className={styles.img} />}
+      {comment?.user?.profile===null?<AccountCircleIcon style={{fontSize:"40px"}}/>: <img src={comment.user.profile} alt="profile" className={styles.img} />}
       </div>
       <div className={styles.right}>
         <div className={styles.first}>
-         <span className={styles.name}>{comment.username}</span>
+         <span className={styles.name}>{comment?.user?.username}</span>
          <span className={styles.time}>{moment(comment.createdAt).fromNow()} </span>
         {id==comment.userId && <button className={styles.delete} onClick={handledelete}>delete</button>}
         </div>
         <div className={styles.desc}>
          {comment.description}
         </div>
-        {/* <div className={styles.third}>
-            <div className={styles.likeContainer}>
-         <button className={styles.likeBtn} title='Like'><ThumbUpAltOutlinedIcon/></button>
-          <span>100</span>
-            </div>
-         <button className={styles.dislike} title='Dislike'><ThumbDownAltOutlinedIcon/></button>
-        </div> */}
+       
       </div>
     </div>
   )

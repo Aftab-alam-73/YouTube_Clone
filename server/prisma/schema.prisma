@@ -29,7 +29,7 @@ model Video {
   imgUrl      String
   description String?
   createdAt   DateTime   @default(now())
-  user        User       @relation(fields: [userId], references: [id])
+  user        User       @relation(fields: [userId], references: [id],onDelete: Cascade)
   userId      Int
   Views       Views[]
   Likes       Likes[]
@@ -39,7 +39,7 @@ model Video {
 model Views {
   userId  Int
   videoId Int
-  video   Video @relation(fields: [videoId], references: [id])
+  video   Video @relation(fields: [videoId], references: [id],onDelete: Cascade)
 
   @@id([userId, videoId])
 }
@@ -48,7 +48,7 @@ model Subscribe {
   id           Int  @id @default(autoincrement())
   subscriberId Int
   channelId    Int
-  user         User @relation(fields: [subscriberId], references: [id])
+  user         User @relation(fields: [subscriberId], references: [id],onDelete: Cascade)
 }
 
 model Likes {
@@ -56,7 +56,7 @@ model Likes {
   userId  Int
   videoId Int
   user    User  @relation(fields: [userId], references: [id])
-  video   Video @relation(fields: [videoId], references: [id])
+  video   Video @relation(fields: [videoId], references: [id],onDelete: Cascade)
 
   @@unique([userId, videoId])
 }
@@ -67,6 +67,6 @@ model Comments {
   createdAt   DateTime @default(now())
   userId      Int
   videoId     Int
-  user        User     @relation(fields: [userId], references: [id])
-  video       Video    @relation(fields: [videoId], references: [id])
+  user        User     @relation(fields: [userId], references: [id],onDelete: Cascade)
+  video       Video    @relation(fields: [videoId], references: [id],onDelete: Cascade)
 }

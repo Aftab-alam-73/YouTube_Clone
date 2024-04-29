@@ -1,10 +1,10 @@
 import Leftbar from '../leftbar/Leftbar'
 import styles from './profile.module.css'
 import Banner from '../../assets/banner.jpg'
-import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import AccountCircle from '@mui/icons-material/AccountCircle'
-import { makeRequest } from '../../axios'
 import Card from '../card/Card'
+import AccountCircle from '@mui/icons-material/AccountCircle'
+import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { makeRequest } from '../../axios'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
@@ -18,6 +18,7 @@ const Profile = () => {
     const {profileId}=useParams()
     const [image,setImage]=useState(null)
     const [profileUrl,setProfileUrl]=useState("");
+  
 // ----------------------------------------------------------------
 // Profile upload functionality.
     const profileMutation=useMutation({
@@ -57,7 +58,7 @@ const Profile = () => {
         () => {
          
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-               profileMutation.mutate({id:profileId,profile:downloadURL})
+               profileMutation.mutate({id:id,profile:downloadURL})
                setProfileUrl(downloadURL);
             });
           });
@@ -80,7 +81,7 @@ const Profile = () => {
           return makeRequest.get(`/video/getchannelvideos/${profileId}`);
         }
       })
-      console.log("data ",data?.data);
+     
     //----------------------------------------------------------------
     // Fetching the number of subscribers of the channel.  
       const subscribersQuery=useQuery({
@@ -103,7 +104,7 @@ const Profile = () => {
       const handledelete=(id:any)=>{
         Mutation.mutate(id)
       }
-      
+     
   return (
     <div className={styles.container}>
     

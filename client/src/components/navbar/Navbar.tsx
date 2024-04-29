@@ -58,10 +58,10 @@ const {id,username,profile}= useSelector((state: any) => state.user)
        {
         id==0?(<Link to={'/signin'} className={styles.link}>
         <User/>
-        </Link>):( <div className={styles.users}>
+        </Link>):(<Link to={`/profile/${id}`} className={styles.link}> <div className={styles.users}>
       {profile!=null? (<img src={profile} alt="" className={styles.img}/>):(<AccountCircleIcon style={{fontSize:"35px"}}/>)}
        <span className={styles.username}>{username}</span>
-       </div>)
+       </div></Link>)
       
        }
       </div>

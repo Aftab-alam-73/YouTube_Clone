@@ -9,7 +9,7 @@ const Home = () => {
   const {searchInput}=useSelector((state:any)=>state.darkMode)
   console.log("from Home",searchInput);
    const {type}=useParams()
-  //  console.log("type: " , type)
+   console.log("type: " , type)
   const {data,isError,isLoading}=useQuery({
     queryKey:["videos",type],
     queryFn:async() =>{
@@ -17,7 +17,7 @@ const Home = () => {
     }
   })
 
-    // console.log("Home page",data?.data);
+    console.log("Home page",data?.data);
   return (
     <div className={styles.container}>
      <Leftbar  />
